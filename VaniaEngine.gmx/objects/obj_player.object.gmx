@@ -85,7 +85,7 @@ if(keyboard_check_pressed(ord("R")))
 object_collision();
 i_frames-=1;
 external_force();
-sprite_controller(spr_ale_idle,spr_ale_walk,spr_mir_jump,spr_mir_jump,-1);
+sprite_controller(spr_ale_idle,spr_ale_walk,spr_ale_jump,spr_ale_jump,spr_ale_atk,spr_ale_kb);
 
 i_frames = clamp(i_frames,0,60);
 
@@ -141,10 +141,10 @@ if(other.type=1 and i_frames&lt;=0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(sprite_index=spr_mir_attack or sprite_index=spr_mir_attack_crouch)
+            <string>if(sprite_index=spr_ale_atk or sprite_index=spr_ale_atk_cr)
 {
-image_speed=0;
-image_index=image_number-1;
+    image_speed=0;
+    image_index=image_number-1;
 }
 </string>
           </argument>

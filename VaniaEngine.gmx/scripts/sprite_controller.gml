@@ -1,13 +1,16 @@
-///sprite_controller(idle,walk,jump,fall,attack)
+///sprite_controller(idle,walk,jump,fall,attack,knockback)
 
 var s_idle = argument0;
 var s_walk = argument1;
 var s_jump = argument2;
 var s_fall = argument3;
 var s_attack1 = argument4;
-var s_knockback
+var s_knockback = argument5;
 
-
+if(!keyboard_check(ord("C")))
+{
+    s_walk=spr_ale_walk_8;
+}
 
 if(state=st_idle and !crouching)
 {
@@ -19,7 +22,8 @@ if(state=st_idle and !crouching)
             {
                 facing=sign(x_axis);
                 sprite_index=s_walk;
-                image_speed = abs(hsp*0.1)+0.1;
+                image_speed = (image_number/8)*(abs(hsp*0.1)+0.1);
+                show_debug_message(image_number);
             }
             else
             {
@@ -65,7 +69,7 @@ if(state=st_idle and !crouching)
 
 if(state=st_idle and crouching)
 {
-    sprite_index=spr_mir_crouch;
+    sprite_index=s_jump;
     if(x_axis<>0)
     facing=sign(x_axis);
     //if(hsp<>0)
@@ -80,11 +84,11 @@ if(state=st_attack)
 {
     if(crouching or !grounded)
     {
-        sprite_index=spr_mir_attack_crouch;
+        sprite_index=spr_ale_atk_cr;
     }
     else
     {
-        sprite_index=spr_mir_attack;
+        sprite_index=s_attack1;
     }
     
     if(attack_timer=22)
@@ -100,7 +104,7 @@ if(state=st_attack)
 
 if(state=st_knockback)
 {
-    sprite_index=spr_mir_kb;
+    sprite_index=s_knockback;
     image_index=0;
 }
 

@@ -41,7 +41,12 @@
         </sprites>
         <sprites name="Alexander">
           <sprite>sprites\spr_ale_idle</sprite>
+          <sprite>sprites\spr_ale_kb</sprite>
+          <sprite>sprites\spr_ale_atk</sprite>
+          <sprite>sprites\spr_ale_jump</sprite>
+          <sprite>sprites\spr_ale_atk_cr</sprite>
           <sprite>sprites\spr_ale_walk</sprite>
+          <sprite>sprites\spr_ale_walk_8</sprite>
         </sprites>
       </sprites>
       <sprites name="Enemies">
