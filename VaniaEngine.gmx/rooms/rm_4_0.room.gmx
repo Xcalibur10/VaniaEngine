@@ -59,6 +59,10 @@
     <instance objName="obj_player" x="272" y="112" name="inst_B20AD963" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_skull_cloud" x="448" y="96" name="inst_AE51DEEF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_skull_cloud" x="96" y="112" name="inst_81C4E611" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_skull_cloud" x="976" y="48" name="inst_13FB7E35" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_skull_cloud" x="976" y="176" name="inst_BD99C220" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_skull_cloud" x="960" y="128" name="inst_555A2005" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_skull_cloud" x="928" y="16" name="inst_02D47087" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="ts_vania" x="224" y="128" w="16" h="16" xo="160" yo="64" id="10033674" name="inst_787EF4D8" depth="10000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

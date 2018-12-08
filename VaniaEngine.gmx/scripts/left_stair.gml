@@ -8,7 +8,7 @@ if(final_vsp>=0 and final_hsp<0 and grounded and xpos_in_tile()>=11 and y_axis<0
     grounded = false;
     was_onstair = true;
     vsp = 0;
-    x=snap_to_tile_x(x,14);
+    x=snap_to_tile_x(x,15);
     //x-=xpos_in_tile(true)-15;
     onstair = 2
     }

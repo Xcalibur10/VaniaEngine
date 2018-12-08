@@ -125,59 +125,55 @@ surface_reset_target();
 
 
 
+if(room &lt;&gt; rm_init)
+    {
+    surface_set_target(application_surface);
+    draw_set_color(c_black);
+    draw_set_alpha(1);
+    draw_rectangle(0,0,256,40,0);
+    draw_set_color(c_white);
+    for(var xx=0;xx&lt;=4;xx++)
+    {
+        //draw_rectangle(0,xx*8,8,(1+xx)*8,1);
+    
+    }
+    
+    with(obj_player)
+    {
+        var txx = xpos_in_tile(false);
+        var tyy = ypos_in_tile(false);
+    }
+    draw_set_font(global.nesfont);
+    
+    var hp_formatted = "000";
+    var player_hp = obj_player.hp;
+    
+    
+    if(player_hp&gt;=100) hp_formatted = string(player_hp);
+    else
+    if(player_hp&lt;100 and player_hp&gt;=10)
+    {
+        hp_formatted = "0"+string(player_hp);
+    }
+    else
+    if(player_hp&lt;10)
+    {
+        hp_formatted = "00"+string(player_hp);
+    }
 
-surface_set_target(application_surface);
-draw_set_color(c_black);
-draw_set_alpha(1);
-draw_rectangle(0,0,256,40,0);
-draw_set_color(c_white);
-for(var xx=0;xx&lt;=4;xx++)
-{
-    //draw_rectangle(0,xx*8,8,(1+xx)*8,1);
 
+    //draw_text_transformed(0,8,"x,y: "+string(txx) +"/"+string(tyy),1,1,0);
+    draw_text(0,16,"HP-"+hp_formatted);
+    var hp_hud_ind=floor(4*(obj_player.hp/obj_player.max_hp));
+    draw_sprite(spr_hud_hp,4-hp_hud_ind,48,16);
+    draw_text(0,24,"FPS: "+string(fps_real));
+    
+    if(global.paused = 1)
+    {
+        draw_text(104,108,"PAUSED");
+    }
+    surface_reset_target();
 }
-
-with(obj_player)
-{
-    var txx = xpos_in_tile(false);
-    var tyy = ypos_in_tile(false);
-}
-draw_set_font(global.nesfont);
-
-var hp_formatted = "000";
-var player_hp = obj_player.hp;
-
-
-if(player_hp&gt;=100) hp_formatted = string(player_hp);
-else
-if(player_hp&lt;100 and player_hp&gt;=10)
-{
-    hp_formatted = "0"+string(player_hp);
-}
-else
-if(player_hp&lt;10)
-{
-    hp_formatted = "00"+string(player_hp);
-}
-
-
-
-//draw_text_transformed(0,8,"x,y: "+string(txx) +"/"+string(tyy),1,1,0);
-draw_text(0,16,"HP-"+hp_formatted);
-var hp_hud_ind=floor(4*(obj_player.hp/obj_player.max_hp));
-show_debug_message(hp_hud_ind);
-draw_sprite(spr_hud_hp,4-hp_hud_ind,48,16);
-draw_text(0,24,"FPS: "+string(fps_real));
-
-if(global.paused = 1)
-{
-    draw_text(104,108,"PAUSED");
-}
-
-//draw_text_transformed(0,24,"FPS: "+string(fps_real),1,1,0);
-
-surface_reset_target();
-
 
 
 
@@ -185,7 +181,8 @@ shader_set(NES_Palette)
 draw_surface_ext(application_surface,0,0,3,3,0,c_white,1);
 
 shader_reset()
-/*
+
+
 shader_set(sh_CRT_Windows);
   shader_set_uniform_f(uni_crt_sizes, surface_width, surface_height,crt_surface_width, crt_surface_height);
   shader_set_uniform_f(distort, var_distort);

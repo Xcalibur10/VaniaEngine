@@ -107,7 +107,7 @@ if(hp&lt;=0)
             <string>hp-=other.dmg;
 
 stun_time=10;
-
+audio_play_sound(sys.hit_sfx_01,0,0);
 other.life=0;
 with(other)
 {

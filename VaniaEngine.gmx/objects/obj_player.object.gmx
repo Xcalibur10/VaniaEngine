@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>init_player();
+init_sprites("ale");
 </string>
           </argument>
         </arguments>
@@ -54,6 +55,16 @@ if(global.paused = 1)
 {
     image_speed=0;
     exit;
+}
+
+if(keyboard_check_pressed(ord("I")))
+{
+    init_sprites("mir");
+}
+
+if(keyboard_check_pressed(ord("O")))
+{
+    init_sprites("ale");
 }
 
 
@@ -112,9 +123,9 @@ i_frames = clamp(i_frames,0,60);
           <argument>
             <kind>1</kind>
             <string>///Knockback
-
 if(other.type=1 and i_frames&lt;=0)
 {
+    audio_play_sound(sys.plr_hurt,0,0)
     player_knockback();
     i_frames = 60;
     hp-=other.dmg;
@@ -141,7 +152,7 @@ if(other.type=1 and i_frames&lt;=0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(sprite_index=spr_ale_atk or sprite_index=spr_ale_atk_cr)
+            <string>if(sprite_index=spr_atk or sprite_index=spr_atk_cr)
 {
     image_speed=0;
     image_index=image_number-1;

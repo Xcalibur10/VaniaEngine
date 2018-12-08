@@ -53,9 +53,6 @@ if(t=1)
     }
   }
 }
-
-
-show_debug_message("Room finished at x: "+string(x/256)+" | y: "+string(y/224));
 instance_destroy();
 </string>
           </argument>

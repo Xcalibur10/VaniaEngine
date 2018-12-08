@@ -70,6 +70,30 @@ application_surface_draw_enable(false);
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Load Sounds
+snd_shoot = audio_create_stream("sounds/shoot_sfx2.ogg");
+hit_sfx_01 = audio_create_stream("sounds/hit_sfx1.ogg");
+plr_hurt = audio_create_stream("sounds/player/plr_hurt.ogg");
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Debug vars
 draw_set_font(ft_small)
 
@@ -202,6 +226,16 @@ if(keyboard_check_pressed(ord("R"))) then
 {
     room_restart();
     instance_destroy(obj_player);
+    
+    if(ds_exists(global.grid,ds_type_grid))
+    {
+        ds_grid_destroy(global.grid);
+    }
+    //if(ds_exists(global.views,ds_type_grid))
+    {
+        //ds_grid_destroy(global.views);
+    }
+    
 }
 
 if(keyboard_check_pressed(ord("N")))
@@ -413,6 +447,12 @@ if(keyboard_check_pressed(ord("P")))
 {
     ds_grid_destroy(global.grid);
 }
+
+/*
+if(ds_exists(global.views,ds_type_grid))
+{
+    //ds_grid_destroy(global.views);
+}
 </string>
           </argument>
         </arguments>
@@ -440,10 +480,10 @@ if(keyboard_check_pressed(ord("P")))
 ///Store tiles and views
 
 store_tiles();
-store_views();
+//store_views();
+
 
 instance_create(0,0,sys_view_bg);
-
 </string>
           </argument>
         </arguments>
@@ -469,6 +509,8 @@ instance_create(0,0,sys_view_bg);
             <string>global.debugmode=false;
 
 global.nesfont=font_add_sprite(spr_nes_font,ord("!"),0,0);
+
+init_rooms();
 </string>
           </argument>
         </arguments>

@@ -126,7 +126,6 @@ if(keyboard_check(sys.dn_key) and grounded) or !grounded
 else
 {
     var air_cell = (get_cell(bb_left()+1,bb_top(),0,-1) == tm_solid or get_cell(bb_right()-1,bb_top(),0,-1) == tm_solid)
-    show_debug_message("AIR_CELL: "+string(air_cell))
     if(!air_cell)
     {
         mask_index = spr_mask_thin;
@@ -245,7 +244,6 @@ if(onplatform=1)
     jumped = false;
     
     var x_offset=platform_id.x-floor(platform_id.x);
-    show_debug_message(x_offset);
     x=floor(x)+x_offset;
     y=platform_id.y-9;   
 }
@@ -303,7 +301,7 @@ for(i=0;i<=2;i++)
 //hitting ceiling when standing on platform -> GET OFF MAH PLATFORM! NOW!
     if(hit_ceiling and onplatform>0)
     {
-        show_debug_message("hit ceiling, push down!")
+        //show_debug_message("hit ceiling, push down!")
         onplatform = 0;
         grounded = false;
         m_hsp=0;

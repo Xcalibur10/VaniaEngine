@@ -3,7 +3,7 @@ var h = room_height/cam_height;
 var top = true;
 var border = 0;
 
-show_debug_message("Rooms: "+string(w)+" | "+string(h))
+//show_debug_message("Rooms: "+string(w)+" | "+string(h))
 
 global.views = ds_grid_create(w,h);
 with (obj_border)
@@ -36,7 +36,7 @@ for(var xx=0;xx<w;xx++)
        border += 8; //BOTTOM BORDER
        }
     global.views[# xx,yy] = border;
-    show_debug_message(string(xx)+" | "+string(yy)+" => "+string(global.views[# xx,yy]))
+    //show_debug_message(string(xx)+" | "+string(yy)+" => "+string(global.views[# xx,yy]))
     border = 0;
     }
 }

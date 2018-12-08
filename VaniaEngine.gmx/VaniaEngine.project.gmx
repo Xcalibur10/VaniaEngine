@@ -3,10 +3,176 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="10" name="datafiles">
+    <datafiles number="10" name="sounds">
+      <datafile>
+        <name>shoot_sfx2.ogg</name>
+        <exists>-1</exists>
+        <size>9269</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>shoot_sfx2.ogg</filename>
+      </datafile>
+      <datafile>
+        <name>shoot_sfx.ogg</name>
+        <exists>-1</exists>
+        <size>6375</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>shoot_sfx.ogg</filename>
+      </datafile>
+      <datafile>
+        <name>hit_sfx2.ogg</name>
+        <exists>-1</exists>
+        <size>5619</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>hit_sfx2.ogg</filename>
+      </datafile>
+      <datafile>
+        <name>hit_sfx1.ogg</name>
+        <exists>-1</exists>
+        <size>5714</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>hit_sfx1.ogg</filename>
+      </datafile>
+      <datafiles number="10" name="player">
+        <datafile>
+          <name>plr_hurt.ogg</name>
+          <exists>-1</exists>
+          <size>3910</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>plr_hurt.ogg</filename>
+        </datafile>
+      </datafiles>
+    </datafiles>
+    <datafiles number="10" name="music">
+      <datafile>
+        <name>akumajou.nsfe</name>
+        <exists>-1</exists>
+        <size>54260</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>akumajou.nsfe</filename>
+      </datafile>
+    </datafiles>
+    <datafile>
+      <name>test.nsf</name>
+      <exists>-1</exists>
+      <size>749</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>test.nsf</filename>
+    </datafile>
+    <datafile>
+      <name>gme-gms-1.2.0.7z</name>
+      <exists>-1</exists>
+      <size>158128</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>gme-gms-1.2.0.7z</filename>
+    </datafile>
+    <datafile>
+      <name>gme_dylib.zip</name>
+      <exists>-1</exists>
+      <size>268498</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>gme_dylib.zip</filename>
+    </datafile>
+  </datafiles>
   <NewExtensions>
     <extension index="0">extensions\CRT Pixel Shader</extension>
+    <extension index="1">extensions\GameMusicEmu</extension>
   </NewExtensions>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sounds name="SFX">
+      <sound>sound\snd_fireball</sound>
+    </sounds>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_fat</sprite>
@@ -33,11 +199,11 @@
           <sprite>sprites\spr_mir_walk</sprite>
           <sprite>sprites\sprite16</sprite>
           <sprite>sprites\spr_mir_jump</sprite>
-          <sprite>sprites\spr_mir_walk_stair_up</sprite>
-          <sprite>sprites\spr_mir_walk_stair_dn</sprite>
-          <sprite>sprites\spr_mir_crouch</sprite>
-          <sprite>sprites\spr_mir_attack_crouch</sprite>
-          <sprite>sprites\spr_mir_attack</sprite>
+          <sprite>sprites\spr_mir_str_up</sprite>
+          <sprite>sprites\spr_mir_str_dn</sprite>
+          <sprite>sprites\spr_mir_cr</sprite>
+          <sprite>sprites\spr_mir_atk_cr</sprite>
+          <sprite>sprites\spr_mir_atk</sprite>
         </sprites>
         <sprites name="Alexander">
           <sprite>sprites\spr_ale_idle</sprite>
@@ -45,8 +211,10 @@
           <sprite>sprites\spr_ale_atk</sprite>
           <sprite>sprites\spr_ale_jump</sprite>
           <sprite>sprites\spr_ale_atk_cr</sprite>
+          <sprite>sprites\spr_ale_walk_4</sprite>
+          <sprite>sprites\spr_ale_str_dn</sprite>
+          <sprite>sprites\spr_ale_str_up</sprite>
           <sprite>sprites\spr_ale_walk</sprite>
-          <sprite>sprites\spr_ale_walk_8</sprite>
         </sprites>
       </sprites>
       <sprites name="Enemies">
@@ -113,6 +281,9 @@
       <script>scripts\get_tile_at.gml</script>
       <script>scripts\snap_to_tile_x.gml</script>
       <script>scripts\snap_to_tile_y.gml</script>
+      <scripts name="Map_Handling">
+        <script>scripts\init_rooms.gml</script>
+      </scripts>
     </scripts>
     <scripts name="Collision">
       <scripts name="Slopes">
@@ -155,6 +326,27 @@
       </scripts>
       <script>scripts\external_force.gml</script>
       <script>scripts\sprite_controller.gml</script>
+      <script>scripts\init_sprites.gml</script>
+      <script>scripts\xpos_in_room.gml</script>
+    </scripts>
+    <scripts name="GME">
+      <script>scripts\GME_LoadSong.gml</script>
+      <script>scripts\GME_MuteVoice.gml</script>
+      <script>scripts\GME_MuteVoices.gml</script>
+      <script>scripts\GME_Pause.gml</script>
+      <script>scripts\GME_Play.gml</script>
+      <script>scripts\GME_Stop.gml</script>
+      <script>scripts\GME_SetTempo.gml</script>
+      <script>scripts\GME_StartTrack.gml</script>
+      <script>scripts\GME_NumVoices.gml</script>
+      <script>scripts\GME_NumTracks.gml</script>
+      <script>scripts\GME_GetPosition.gml</script>
+      <script>scripts\GME_SetPosition.gml</script>
+      <script>scripts\GME_GetTrackLength.gml</script>
+      <script>scripts\GME_GetName.gml</script>
+      <script>scripts\GME_GetAuthor.gml</script>
+      <script>scripts\GME_GetComment.gml</script>
+      <script>scripts\GME_GetCopyright.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -198,10 +390,17 @@
       <object>objects\par_projectile</object>
       <object>objects\obj_fb01_exp</object>
     </objects>
+    <objects name="GME">
+      <object>objects\obj_gme</object>
+      <object>objects\obj_gme_demo</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
-    <room>rooms\rm_first_room</room>
+    <rooms name="Map">
+      <room>rooms\rm_4_0</room>
+      <room>rooms\rm_8_0</room>
+    </rooms>
     <room>rooms\rm_other</room>
     <room>rooms\rm_collisiontest</room>
     <room>rooms\rm_simple</room>
