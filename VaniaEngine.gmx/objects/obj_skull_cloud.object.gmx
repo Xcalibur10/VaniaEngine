@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>event_inherited();
 
-max_hp=2;
+max_hp=10;
 hp=max_hp;
 type=1;
 dmg=15;
@@ -194,8 +194,10 @@ if(stun_time&gt;0 or global.paused)
 var dist = distance_to_object(obj_player);
 
 //Far from player, do nothing!!!
-if(dist&gt;180)
+if(outside_view(24))
 {
+    //x=xstart;
+    //y=ystart;
     exit;
 }
 
@@ -216,8 +218,9 @@ evasion-=1
         if(x_dist&gt;x_dist_prev) attack_incoming=true;
         if(proj.y&gt;y-12 and proj.y&lt;y+30 and distance_to_object(proj)&lt;48 and attack_incoming and state=0)
         {
-
-            if(evasion&lt;=0)
+            var rnd = irandom(3);
+            show_debug_message("rnd: "+string(rnd));
+            if(evasion&lt;=0 and rnd = 0)
             {
                 show_debug_message("EVADE!!!");
                 state=2;
@@ -226,13 +229,9 @@ evasion-=1
         }
     }
     
-    if(state = 2)
+    if(evasion&lt;-90)
     {
-        //spd+=0.5;
-    }
-    if(evasion&lt;-120)
-    {
-        evasion=-120;
+        evasion=-90;
         state=0;
     }
 
@@ -297,8 +296,14 @@ y+=vsp
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>spd *=0.5;
+            <string>spd = 0.2;
+
 event_inherited();
+
+if(hp&lt;floor(max_hp/2))
+{
+    sprite_index=spr_ene_skull_glow_damaged;
+}
 </string>
           </argument>
         </arguments>
@@ -322,11 +327,6 @@ event_inherited();
           <argument>
             <kind>1</kind>
             <string>image_index=clamp(3+hsp*-3,0,5);
-
-if(hp&lt;2)
-{
-    sprite_index=spr_ene_skull_glow_damaged;
-}
 
 if(stun_time&lt;=0 or (stun_time mod 2 = 1 and stun_time&gt;0))
 {

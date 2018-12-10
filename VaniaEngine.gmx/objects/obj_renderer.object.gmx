@@ -28,10 +28,48 @@
             <string>///Basic Stuffs
 t=0;
 alpha=1;
+
+global.main_surf = surface_create(256,224);
 </string>
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>t+=0.002;
+alpha = (abs(sin(t))*2)-1;
+
+var surf = global.main_surf;
+
+if !surface_exists(surf)
+{
+    surf = surface_create(256, 224);
+    surface_set_target(surf);
+    draw_clear_alpha(c_black, 0);
+    surface_reset_target();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="4">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -73,30 +111,6 @@ surface_resize(application_surface, surface_width, surface_height);
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>t+=0.002;
-alpha = (abs(sin(t))*2)-1;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
@@ -114,18 +128,7 @@ alpha = (abs(sin(t))*2)-1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*surface_set_target(application_surface);
-draw_set_color(c_black);
-draw_set_alpha(-alpha);
-draw_rectangle(0,0,256,224,0);
-draw_set_color(c_white);
-draw_set_alpha(1)
-surface_reset_target();
-*/
-
-
-
-if(room &lt;&gt; rm_init)
+            <string>if(room &lt;&gt; rm_init)
     {
     surface_set_target(application_surface);
     draw_set_color(c_black);
@@ -138,17 +141,11 @@ if(room &lt;&gt; rm_init)
     
     }
     
-    with(obj_player)
-    {
-        var txx = xpos_in_tile(false);
-        var tyy = ypos_in_tile(false);
-    }
     draw_set_font(global.nesfont);
     
     var hp_formatted = "000";
-    var player_hp = obj_player.hp;
-    
-    
+    var player_hp = obj_player.hp;    
+  
     if(player_hp&gt;=100) hp_formatted = string(player_hp);
     else
     if(player_hp&lt;100 and player_hp&gt;=10)
@@ -161,35 +158,45 @@ if(room &lt;&gt; rm_init)
         hp_formatted = "00"+string(player_hp);
     }
 
-
-    //draw_text_transformed(0,8,"x,y: "+string(txx) +"/"+string(tyy),1,1,0);
     draw_text(0,16,"HP-"+hp_formatted);
     var hp_hud_ind=floor(4*(obj_player.hp/obj_player.max_hp));
-    draw_sprite(spr_hud_hp,4-hp_hud_ind,48,16);
-    draw_text(0,24,"FPS: "+string(fps_real));
+ 
+    draw_sprite(spr_hud_hp,4-hp_hud_ind,48,16)
+
+    //draw_text(0,24,"FPS: "+string(fps_real));
     
     if(global.paused = 1)
     {
         draw_text(104,108,"PAUSED");
     }
+         
     surface_reset_target();
 }
 
 
 
-shader_set(NES_Palette)
-draw_surface_ext(application_surface,0,0,3,3,0,c_white,1);
+surface_set_target(global.main_surf)
+    shader_set(NES_Palette)
+        draw_surface_ext(application_surface,0,0,1,1,0,c_white,1);
+    shader_reset();
+surface_reset_target();
 
-shader_reset()
 
 
-shader_set(sh_CRT_Windows);
+//shader_set(sh_CRT_Windows);
   shader_set_uniform_f(uni_crt_sizes, surface_width, surface_height,crt_surface_width, crt_surface_height);
   shader_set_uniform_f(distort, var_distort);
   shader_set_uniform_f(distortion, var_distortion_ammount);
   shader_set_uniform_f(border, var_border);
-  draw_surface_part_ext(application_surface, 0, 0, view_wview[0], view_hview[0], 0, 0, crt_surface_scale, crt_surface_scale, c_white, 1);
-shader_reset();
+  if(surface_exists(global.main_surf))
+  {
+    draw_surface_part_ext(global.main_surf, 0, 0, view_wview[0], view_hview[0], 0, 0, crt_surface_scale, crt_surface_scale, c_white, 1);
+  }
+  else
+  {
+    global.main_surf=surface_create(256,224);
+  }
+//shader_reset();
 
 </string>
           </argument>

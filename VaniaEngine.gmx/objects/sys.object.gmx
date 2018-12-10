@@ -28,10 +28,10 @@
             <string>///Basic stuff
 global.time = 0;
 global.cycle = 0;
-global.edit_mode = false;
 global.palette = 0;
 global.paused = 0;
-
+global.edit_mode = false;
+global.is_new_room = false;
 
 global.grid = ds_grid_create(0,0);
 
@@ -74,6 +74,14 @@ application_surface_draw_enable(false);
 snd_shoot = audio_create_stream("sounds/shoot_sfx2.ogg");
 hit_sfx_01 = audio_create_stream("sounds/hit_sfx1.ogg");
 plr_hurt = audio_create_stream("sounds/player/plr_hurt.ogg");
+
+var vol = 0.3
+
+audio_sound_gain(snd_shoot,vol,0);
+audio_sound_gain(hit_sfx_01,vol,0);
+audio_sound_gain(plr_hurt,vol,0);
+
+//audio_master_gain(0.15);
 </string>
           </argument>
         </arguments>
@@ -105,54 +113,6 @@ frameDrawn=0;
 //autotiling
 brush = 1;
 </string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Store tiles and views
-/*
-store_tiles();
-store_views();
-
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string></string>
           </argument>
         </arguments>
       </action>
@@ -224,9 +184,10 @@ if(room_speed&gt;=60) then room_speed = 60
 //GO TO NEXT ROOM
 if(keyboard_check_pressed(ord("R"))) then
 {
-    room_restart();
-    instance_destroy(obj_player);
-    
+    room_goto(asset_get_index("rm_4_0"));
+
+    obj_player.x=obj_player.xstart;
+    obj_player.y=obj_player.ystart;
     if(ds_exists(global.grid,ds_type_grid))
     {
         ds_grid_destroy(global.grid);
@@ -269,6 +230,8 @@ if(keyboard_check(vk_shift) and mouse_check_button_pressed(mb_left))
             <kind>1</kind>
             <string>///Place / Remove tile
 
+/*
+
 //PLACE TILE
 if (mouse_check_button(mb_left) and !keyboard_check(vk_shift))
 {
@@ -276,10 +239,6 @@ if (mouse_check_button(mb_left) and !keyboard_check(vk_shift))
 var mx = floor(mouse_x/16)*16
 var my = floor(mouse_y/16)*16
 
-
-//show_debug_message(tile)
-
-//tile_delete(tile)
 for(var tx=-1;tx&lt;=1;tx++)
 {
     for(var ty=-1;ty&lt;=1;ty++)
@@ -316,23 +275,6 @@ if(tile != -1) then
     }
     global.grid[# mx/16, my/16]=tm_air
 }
-
-/*
-if (mouse_check_button(mb_middle))
-{
-  
-  var mx = floor(mouse_x/16)*16
-  var my = floor(mouse_y/16)*16
-  
-  var tile = tile_layer_find(100,mx,my)
-  show_debug_message(string(tile)+" is a slope now!")
-  
-  if(tile != -1) then
-  {
-      global.grid[# mx/16, my/16]="s"
-  }
-}
-*/
 </string>
           </argument>
         </arguments>
@@ -481,8 +423,6 @@ if(ds_exists(global.views,ds_type_grid))
 
 store_tiles();
 //store_views();
-
-
 instance_create(0,0,sys_view_bg);
 </string>
           </argument>

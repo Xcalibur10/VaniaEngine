@@ -91,7 +91,7 @@ if(state=st_attack)
         sprite_index=spr_atk;
     }
     
-    if(attack_timer=22)
+    if(attack_timer=atk_spd)
     {
         image_index=0;
         image_speed=0.35;

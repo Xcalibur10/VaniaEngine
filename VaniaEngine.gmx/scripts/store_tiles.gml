@@ -31,15 +31,6 @@ for(yy=0;yy<h;yy++)
             ww = tile_get_left(tile)/16;
             hh = tile_get_top(tile)/16;
             
-            get_tile_from_background(ts_grassland,xx,yy,tile,tm_oneway,0,3,ww,hh);
-            get_tile_from_background(ts_grassland,xx,yy,tile,tm_oneway,1,3,ww,hh);
-            get_tile_from_background(ts_grassland,xx,yy,tile,tm_oneway,2,3,ww,hh);
-            get_tile_from_background(ts_tech01,xx,yy,tile,tm_oneway,0,3,ww,hh);
-            get_tile_from_background(ts_tech01,xx,yy,tile,tm_oneway,1,3,ww,hh);
-            get_tile_from_background(ts_tech01,xx,yy,tile,tm_oneway,2,3,ww,hh);
-            get_tile_from_background(ts_castle01,xx,yy,tile,tm_oneway,0,3,ww,hh);
-            get_tile_from_background(ts_castle01,xx,yy,tile,tm_oneway,1,3,ww,hh);
-            get_tile_from_background(ts_castle01,xx,yy,tile,tm_oneway,2,3,ww,hh);
             get_tile_from_background(ts_vania,xx,yy,tile,tm_stair_r,0,2,ww,hh);
             get_tile_from_background(ts_vania,xx,yy,tile,tm_stair_l,1,2,ww,hh);              
             get_tile_from_background(ts_vania,xx,yy,tile,tm_stair_end_bottom,30,31,ww,hh);

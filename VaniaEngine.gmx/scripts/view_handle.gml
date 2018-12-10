@@ -1,6 +1,8 @@
 var ox = argument0;
 var oy = argument1;
 
+var v_off = 32;
+
 var vx = floor(ox-view_wview[0]/2);
 var vy = floor(oy-view_hview[0]/2);
 
@@ -71,8 +73,8 @@ view_xview[0] = round(vx);
 
 
 
-if(vy<=0) vy = 0;
-if(vy>=room_height-view_hview[0]) vy = room_height-view_hview[0];
+if(vy<=8) vy = 8;
+if(vy>=room_height-8-view_hview[0]) vy = room_height-view_hview[0]-8;
 view_yview[0] = round(vy);
 
 
@@ -82,19 +84,19 @@ view_yview[0] = round(vy);
 //Fix BG (like sky)
 
 background_x[0] = round(view_xview[0]);
-background_y[0] = round(view_yview[0]+40);
+background_y[0] = round(view_yview[0]+v_off);
 
 background_x[1] = round(view_xview[0]*(0.9));
-background_y[1] = round(view_yview[0]*(0.9)+40);
+background_y[1] = round(view_yview[0]*(0.9)+v_off);
 
 background_x[2] = round(view_xview[0]*0.7);
-background_y[2] = round(view_yview[0]*0.7+40);
+background_y[2] = round(view_yview[0]*0.7+v_off);
 
 background_x[3] = round(view_xview[0]*0.5);
-background_y[3] = round(view_yview[0]*0.5+40);
+background_y[3] = round(view_yview[0]*0.5+v_off);
 
 background_x[4] = round(view_xview[0]*0.35);
-background_y[4] = round(view_yview[0]*0.35+40);
+background_y[4] = round(view_yview[0]*0.35+v_off);
 
 background_x[5] = round(view_xview[0]*0.15);
-background_y[5] = round(view_yview[0]*0.15+40);
+background_y[5] = round(view_yview[0]*0.15+v_off);

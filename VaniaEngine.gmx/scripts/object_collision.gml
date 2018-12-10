@@ -106,8 +106,8 @@ for(i=0;i<=2;i++)
 }
 
 //Staircase codes!!!
-right_stair()
-left_stair()
+right_stair();
+left_stair();
 
 
 //VERTICAL PART OF THE JOURNEY
@@ -125,8 +125,8 @@ if(keyboard_check(sys.dn_key) and grounded) or !grounded
 }
 else
 {
-    var air_cell = (get_cell(bb_left()+1,bb_top(),0,-1) == tm_solid or get_cell(bb_right()-1,bb_top(),0,-1) == tm_solid)
-    if(!air_cell)
+    var air_cell = (get_cell(bb_left()+1,bb_top()-8,0,0) == tm_solid or get_cell(bb_right()-1,bb_top()-8,0,0) == tm_solid)
+    if(!air_cell or onstair>0)
     {
         mask_index = spr_mask_thin;
         spd = spd_normal;
@@ -185,7 +185,10 @@ grounded_cache-=spd_normal;
 
 
 grounded = false;
-
+if(onstair>0)
+{
+    grounded = true;
+}
 
 //Move with platform (y)
 if(onplatform=2)

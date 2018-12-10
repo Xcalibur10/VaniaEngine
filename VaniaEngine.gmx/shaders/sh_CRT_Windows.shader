@@ -18,8 +18,8 @@ uniform bool border;
 
     #define TEX2D(c) pow(abs(texture2D(gm_BaseTexture, (c))), vec4(inputGamma))          
     float PI = 3.141592653589;
-    float inputGamma = 2.4;
-    float outputGamma = 2.8;
+    float inputGamma = 2.2;
+    float outputGamma = 2.4;
     
     vec4 scanlineWeights(float dist, vec4 col)
     {

@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="10" name="datafiles">
-    <datafiles number="10" name="sounds">
+  <datafiles number="11" name="datafiles">
+    <datafiles number="11" name="sounds">
       <datafile>
         <name>shoot_sfx2.ogg</name>
         <exists>-1</exists>
@@ -73,7 +73,7 @@
         </ConfigOptions>
         <filename>hit_sfx1.ogg</filename>
       </datafile>
-      <datafiles number="10" name="player">
+      <datafiles number="11" name="player">
         <datafile>
           <name>plr_hurt.ogg</name>
           <exists>-1</exists>
@@ -93,7 +93,7 @@
         </datafile>
       </datafiles>
     </datafiles>
-    <datafiles number="10" name="music">
+    <datafiles number="11" name="music">
       <datafile>
         <name>akumajou.nsfe</name>
         <exists>-1</exists>
@@ -110,6 +110,23 @@
           </Config>
         </ConfigOptions>
         <filename>akumajou.nsfe</filename>
+      </datafile>
+      <datafile>
+        <name>dracula.nsf</name>
+        <exists>-1</exists>
+        <size>13564</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>dracula.nsf</filename>
       </datafile>
     </datafiles>
     <datafile>
@@ -181,7 +198,6 @@
     <sprite>sprites\spr_mask_thin</sprite>
     <sprite>sprites\spr_border</sprite>
     <sprite>sprites\spr_platform</sprite>
-    <sprite>sprites\spr_NES_PAL</sprite>
     <sprite>sprites\spr_grad</sprite>
     <sprites name="Fonts">
       <sprite>sprites\spr_nes_font</sprite>
@@ -233,30 +249,28 @@
     <sprites name="HUD">
       <sprite>sprites\spr_hud_hp</sprite>
     </sprites>
+    <sprites name="System">
+      <sprite>sprites\spr_nes_pal</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Tiles">
       <backgrounds name="Colliders">
-        <backgrounds name="Nature">
-          <background>background\ts_grassland</background>
-          <background>background\ts_vania_tile</background>
-          <background>background\ts_castle01</background>
-        </backgrounds>
-        <background>background\ts_test</background>
-        <background>background\ts_outdoor_nature</background>
-        <background>background\ts_tech01</background>
         <background>background\ts_staircases</background>
+        <background>background\ts_vania</background>
       </backgrounds>
       <background>background\ts_bg</background>
-      <background>background\ts_vania</background>
+      <background>background\ts_vania_at</background>
     </backgrounds>
-    <background>background\bg_room</background>
     <backgrounds name="Backgrounds">
       <background>background\fg_grid</background>
       <background>background\bg_pines</background>
+      <background>background\bg_pines_big</background>
       <background>background\bg_pines2_n</background>
       <background>background\bg_mountains_n</background>
-      <background>background\bg_sky_n1</background>
+      <backgrounds name="Skies">
+        <background>background\bg_sky_n1</background>
+      </backgrounds>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
@@ -283,6 +297,16 @@
       <script>scripts\snap_to_tile_y.gml</script>
       <scripts name="Map_Handling">
         <script>scripts\init_rooms.gml</script>
+        <script>scripts\move_to_room.gml</script>
+        <script>scripts\get_new_room_x.gml</script>
+        <script>scripts\get_new_room_y.gml</script>
+        <script>scripts\xpos_in_room.gml</script>
+        <script>scripts\ypos_in_room.gml</script>
+      </scripts>
+      <script>scripts\outside_view.gml</script>
+      <scripts name="Editor">
+        <script>scripts\save_room.gml</script>
+        <script>scripts\load_room.gml</script>
       </scripts>
     </scripts>
     <scripts name="Collision">
@@ -327,7 +351,6 @@
       <script>scripts\external_force.gml</script>
       <script>scripts\sprite_controller.gml</script>
       <script>scripts\init_sprites.gml</script>
-      <script>scripts\xpos_in_room.gml</script>
     </scripts>
     <scripts name="GME">
       <script>scripts\GME_LoadSong.gml</script>
@@ -381,6 +404,7 @@
       <object>objects\obj_editor</object>
       <object>objects\obj_renderer</object>
       <object>objects\obj_debug_grid</object>
+      <object>objects\obj_save</object>
     </objects>
     <object>objects\obj_make_room</object>
     <object>objects\obj_speed_integer</object>
@@ -398,8 +422,12 @@
   <rooms name="rooms">
     <room>rooms\rm_init</room>
     <rooms name="Map">
+      <room>rooms\rm_10_10</room>
       <room>rooms\rm_4_0</room>
+      <room>rooms\rm_3_0</room>
       <room>rooms\rm_8_0</room>
+      <room>rooms\rm_8_1</room>
+      <room>rooms\rm_9_0</room>
     </rooms>
     <room>rooms\rm_other</room>
     <room>rooms\rm_collisiontest</room>

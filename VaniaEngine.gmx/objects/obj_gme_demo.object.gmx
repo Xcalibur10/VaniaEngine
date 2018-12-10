@@ -45,7 +45,8 @@ for(var i=7; i&gt;=0; i--)
 var filename;
 
 
-filename = working_directory + "music/akumajou.nsfe";
+//filename = working_directory + "music/akumajou.nsfe";
+filename = working_directory + "music/dracula.nsf";
 
 
 // Load a song. The function will return the index to the sound queue

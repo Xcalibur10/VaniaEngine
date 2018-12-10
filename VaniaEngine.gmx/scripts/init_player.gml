@@ -65,5 +65,7 @@ state = st_idle;
 max_hp=100
 hp=max_hp;
 
+atk_spd = 20;
+
 mask_index = sprite_index;
 

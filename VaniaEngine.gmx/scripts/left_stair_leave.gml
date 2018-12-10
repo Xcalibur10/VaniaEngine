@@ -1,5 +1,11 @@
 //Get off the stairs!!!
-if(onstair=stair_on_left and y_axis>0 and keyboard_check_pressed(sys.jp_key))
+var check_solid = get_cell(bb_left()+1,y,0,0)=tm_solid or 
+                  get_cell(bb_right()-1,y,0,0)=tm_solid or
+                  get_cell(bb_left()+1,y,0,-1)=tm_solid or
+                  get_cell(bb_right()-1,y,0,-1)=tm_solid;
+                                    
+
+if(onstair=stair_on_left and y_axis>0 and keyboard_check_pressed(sys.jp_key) and !check_solid)
 {
     onstair=0;
     vsp = 0;

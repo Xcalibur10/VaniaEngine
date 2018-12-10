@@ -1,6 +1,6 @@
 global.rooms = ds_grid_create(25,25);
 ds_grid_clear(global.rooms,-1);
-
+global.previous_room = 0;
 
 ini_open("full_map.ini");
 

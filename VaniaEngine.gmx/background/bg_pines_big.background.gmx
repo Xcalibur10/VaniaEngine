@@ -10,10 +10,10 @@
   <HTile>-1</HTile>
   <VTile>-1</VTile>
   <TextureGroups>
-    <TextureGroup0>1</TextureGroup0>
+    <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>256</width>
-  <height>192</height>
-  <data>images\bg_sky_n1.png</data>
+  <width>128</width>
+  <height>175</height>
+  <data>images\bg_pines_big.png</data>
 </background>

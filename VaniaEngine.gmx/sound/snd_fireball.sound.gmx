@@ -22,7 +22,7 @@
   </bitDepths>
   <preload>-1</preload>
   <data>snd_fireball.ogg</data>
-  <compressed>1</compressed>
+  <compressed>0</compressed>
   <streamed>0</streamed>
   <uncompressOnLoad>0</uncompressOnLoad>
   <audioGroup>0</audioGroup>
