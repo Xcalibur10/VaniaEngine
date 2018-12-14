@@ -13,6 +13,9 @@ y_axis = 0
 final_hsp=0;
 final_vsp=0;
 
+
+xprevious_tile=0;
+yprevious_tile=0;
 //Stores bounding box data
 tb = bb_top();
 bb = bb_bottom();

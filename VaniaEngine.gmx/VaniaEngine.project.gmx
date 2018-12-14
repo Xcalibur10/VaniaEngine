@@ -223,6 +223,7 @@
         </sprites>
         <sprites name="Alexander">
           <sprite>sprites\spr_ale_idle</sprite>
+          <sprite>sprites\sprite43</sprite>
           <sprite>sprites\spr_ale_kb</sprite>
           <sprite>sprites\spr_ale_atk</sprite>
           <sprite>sprites\spr_ale_jump</sprite>
@@ -251,6 +252,13 @@
     </sprites>
     <sprites name="System">
       <sprite>sprites\spr_nes_pal</sprite>
+      <sprites name="palettes">
+        <sprite>sprites\spr_palettes</sprite>
+        <sprite>sprites\spr_grad_test</sprite>
+      </sprites>
+    </sprites>
+    <sprites name="FX">
+      <sprite>sprites\spr_light</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -271,6 +279,7 @@
       <backgrounds name="Skies">
         <background>background\bg_sky_n1</background>
       </backgrounds>
+      <background>background\bg_pines3_n</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
@@ -307,6 +316,13 @@
       <scripts name="Editor">
         <script>scripts\save_room.gml</script>
         <script>scripts\load_room.gml</script>
+        <script>scripts\mouse_x_screen.gml</script>
+        <script>scripts\mouse_y_screen.gml</script>
+      </scripts>
+      <scripts name="Palettes">
+        <script>scripts\init_palettes.gml</script>
+        <script>scripts\draw_self_palette.gml</script>
+        <script>scripts\draw_sprite_ext_palette.gml</script>
       </scripts>
     </scripts>
     <scripts name="Collision">
@@ -379,6 +395,7 @@
     <shader type="GLSLES">shaders\shader3.shader</shader>
     <shader type="GLSLES">shaders\shader4.shader</shader>
     <shader type="GLSLES">shaders\sh_CRT_Windows.shader</shader>
+    <shader type="GLSLES">shaders\NES_color.shader</shader>
   </shaders>
   <fonts name="fonts">
     <font>fonts\ft_small</font>
@@ -388,11 +405,13 @@
     <objects name="Creatures">
       <object>objects\obj_player</object>
       <object>objects\par_creature</object>
+      <object>objects\par_entity</object>
       <objects name="Enemies">
         <object>objects\obj_skull_cloud</object>
         <object>objects\obj_skull_death</object>
         <object>objects\obj_skull_dying</object>
       </objects>
+      <object>objects\par_player</object>
     </objects>
     <object>objects\obj_border</object>
     <object>objects\par_mplatform</object>
@@ -422,8 +441,8 @@
   <rooms name="rooms">
     <room>rooms\rm_init</room>
     <rooms name="Map">
-      <room>rooms\rm_10_10</room>
       <room>rooms\rm_4_0</room>
+      <room>rooms\rm_10_10</room>
       <room>rooms\rm_3_0</room>
       <room>rooms\rm_8_0</room>
       <room>rooms\rm_8_1</room>

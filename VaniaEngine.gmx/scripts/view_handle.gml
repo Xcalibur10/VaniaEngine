@@ -18,54 +18,11 @@ var c = 8;
 
 var scrtype=0;
 
-/*
-var border = global.views[# rx,ry];
-//show_debug_message("BORDER= "+string(border))
-
-//Get borders... would have been better in a loop...
-if(border - c>=0) then {bb = true; border = border -c;};
-c/=2;
-if(border - c>=0) then {bl = true; border = border -c;};
-c/=2;
-if(border - c>=0) then {bt = true; border = border -c;};
-c/=2;
-if(border - c>=0) then {br = true; border = border -c;};
-*/
 var rxw = 0
 var rxh = 0
 
 var bg_x = rx;
 var bg_y = ry;
-
-if(br == true or bl == true)
-{
-    //show_debug_message("Horizontal Scrolling")
-}
-if(bt == true or bb == true)
-{
-    //show_debug_message("Vertical Scrolling")
-}
-
-if(br)
-{
-    if(vx>=rx*cam_width) vx = rx*cam_width;
-}
-
-if(bl)
-{
-    if(vx<=rx*cam_width) vx = rx*cam_width;
-}
-
-if(bt)
-{
-    if(vy<=ry*cam_height) vy = ry*cam_height;
-}
-
-if(bb)
-{
-    if(vy>=ry*cam_height) vy = ry*cam_height;
-}
-
 
 if(vx<=0) vx = 0;
 if(vx>=room_width-view_wview[0]) vx = room_width-view_wview[0];
@@ -73,7 +30,7 @@ view_xview[0] = round(vx);
 
 
 
-if(vy<=8) vy = 8;
+if(vy<=-40) vy = -40;
 if(vy>=room_height-8-view_hview[0]) vy = room_height-view_hview[0]-8;
 view_yview[0] = round(vy);
 
@@ -87,13 +44,13 @@ background_x[0] = round(view_xview[0]);
 background_y[0] = round(view_yview[0]+v_off);
 
 background_x[1] = round(view_xview[0]*(0.9));
-background_y[1] = round(view_yview[0]*(0.9)+v_off);
+background_y[1] = round(view_yview[0]*(0.9)+v_off+20);
 
 background_x[2] = round(view_xview[0]*0.7);
-background_y[2] = round(view_yview[0]*0.7+v_off);
+background_y[2] = round(view_yview[0]*0.7+v_off+70);
 
 background_x[3] = round(view_xview[0]*0.5);
-background_y[3] = round(view_yview[0]*0.5+v_off);
+background_y[3] = round(view_yview[0]*0.5+v_off-10);
 
 background_x[4] = round(view_xview[0]*0.35);
 background_y[4] = round(view_yview[0]*0.35+v_off);

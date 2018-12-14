@@ -53,10 +53,23 @@
   <instances>
     <instance objName="obj_skull_cloud" x="208" y="32" name="inst_6E50E734" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_save" x="16" y="32" name="inst_0C494447" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player" x="32" y="144" name="inst_550F6F12" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="ts_vania" x="16" y="144" w="16" h="16" xo="96" yo="0" id="10037205" name="inst_52CDB120" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_vania" x="32" y="144" w="16" h="16" xo="96" yo="16" id="10037206" name="inst_EA70272A" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_vania" x="48" y="144" w="16" h="16" xo="112" yo="16" id="10037207" name="inst_BDCCD087" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_vania" x="80" y="144" w="16" h="16" xo="32" yo="96" id="10037208" name="inst_C4D65BEF" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_vania" x="96" y="144" w="16" h="16" xo="32" yo="96" id="10037209" name="inst_7D01FA55" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_vania" x="64" y="144" w="16" h="16" xo="32" yo="96" id="10037210" name="inst_E7C1979D" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_vania" x="112" y="144" w="16" h="16" xo="32" yo="96" id="10037211" name="inst_B3F74F97" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_vania" x="112" y="176" w="16" h="16" xo="32" yo="96" id="10037212" name="inst_5965CF6D" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_vania" x="112" y="160" w="16" h="16" xo="32" yo="96" id="10037213" name="inst_8A83C6A7" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_vania" x="96" y="160" w="16" h="16" xo="32" yo="96" id="10037214" name="inst_B814919B" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_vania" x="80" y="160" w="16" h="16" xo="32" yo="96" id="10037215" name="inst_93252AA0" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_vania" x="64" y="160" w="16" h="16" xo="32" yo="96" id="10037216" name="inst_DE70E09A" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_vania" x="64" y="176" w="16" h="16" xo="32" yo="96" id="10037217" name="inst_D14FCC84" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_vania" x="96" y="176" w="16" h="16" xo="32" yo="96" id="10037218" name="inst_AD1D00FF" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="ts_vania" x="80" y="176" w="16" h="16" xo="32" yo="96" id="10037219" name="inst_4FD7605E" depth="100" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

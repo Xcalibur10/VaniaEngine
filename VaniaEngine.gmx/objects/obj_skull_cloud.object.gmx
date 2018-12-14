@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited();
+init_palettes(10);
+
 
 max_hp=10;
 hp=max_hp;
@@ -185,7 +187,7 @@ y+=vsp
             <string>///Behaviour Code
 
 event_inherited();
-if(stun_time&gt;0 or global.paused)
+if(stun_time&gt;0 or global.paused or !instance_exists(obj_player))
 {
     exit;
 }
@@ -202,7 +204,14 @@ if(outside_view(24))
 }
 
 //Move skull!
-angle = point_direction(x, y, obj_player.x, obj_player.y-15);
+if(obj_player.crouching=false)
+{
+    angle = point_direction(x, y, obj_player.x, obj_player.y-15);
+}
+else
+{
+    angle = point_direction(x, y, obj_player.x, obj_player.y-5);
+}
 t=global.time;
 
 evasion-=1
@@ -253,12 +262,12 @@ evasion-=1
         }
         else
         {
-            spd-=0.03;
+            spd-=0.01;
         }
 
-        new_angle -= angle_difference(new_angle,angle)*0.04;
+        new_angle -= angle_difference(new_angle,angle)*0.03;
         //spd=(dist/atk_dist)*1.8;
-        spd=clamp(spd,0.2,2.0);      
+        spd=clamp(spd,0.2,1.5);      
         hsp=lengthdir_x(spd,new_angle);
         vsp=lengthdir_y(spd,new_angle);
     }
@@ -296,7 +305,7 @@ y+=vsp
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>spd = 0.2;
+            <string>spd *= 0.5;
 
 event_inherited();
 
@@ -330,7 +339,7 @@ if(hp&lt;floor(max_hp/2))
 
 if(stun_time&lt;=0 or (stun_time mod 2 = 1 and stun_time&gt;0))
 {
-    draw_self();
+    draw_self_palette();
 }
 </string>
           </argument>

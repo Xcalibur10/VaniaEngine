@@ -23,7 +23,7 @@ void main()
 //
 varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
-float posterize = 8.0;
+float posterize = 10.0;
 
 
 void main()

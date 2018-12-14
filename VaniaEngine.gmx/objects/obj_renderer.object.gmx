@@ -129,7 +129,7 @@ surface_resize(application_surface, surface_width, surface_height);
           <argument>
             <kind>1</kind>
             <string>if(room &lt;&gt; rm_init)
-    {
+{
     surface_set_target(application_surface);
     draw_set_color(c_black);
     draw_set_alpha(1);
@@ -141,6 +141,7 @@ surface_resize(application_surface, surface_width, surface_height);
     
     }
     
+    //SET FONT
     draw_set_font(global.nesfont);
     
     var hp_formatted = "000";
@@ -160,28 +161,25 @@ surface_resize(application_surface, surface_width, surface_height);
 
     draw_text(0,16,"HP-"+hp_formatted);
     var hp_hud_ind=floor(4*(obj_player.hp/obj_player.max_hp));
- 
     draw_sprite(spr_hud_hp,4-hp_hud_ind,48,16)
 
-    //draw_text(0,24,"FPS: "+string(fps_real));
-    
     if(global.paused = 1)
     {
         draw_text(104,108,"PAUSED");
-    }
+    }   
          
     surface_reset_target();
 }
 
 
-
+if(surface_exists(global.main_surf))
+{
 surface_set_target(global.main_surf)
     shader_set(NES_Palette)
         draw_surface_ext(application_surface,0,0,1,1,0,c_white,1);
     shader_reset();
-surface_reset_target();
-
-
+    surface_reset_target();
+}
 
 //shader_set(sh_CRT_Windows);
   shader_set_uniform_f(uni_crt_sizes, surface_width, surface_height,crt_surface_width, crt_surface_height);
@@ -194,6 +192,7 @@ surface_reset_target();
   }
   else
   {
+    draw_clear_alpha(c_black, 0);
     global.main_surf=surface_create(256,224);
   }
 //shader_reset();

@@ -316,21 +316,27 @@ for(i=0;i<=2;i++)
 
 //show_debug_message("vsp before collision check: "+string(final_vsp));
     
-
-//Bottom grid collision handle
+var solid_stair = false;
+//Bottom grid collision handle>>>>>>>>>>>>>>>>>>>>>>>
 if(final_vsp >= 0)
 {
+    
     for(i=0;i<=2;i+=1)
     {
-    update_aabb();
-    var w = lerp(lb+1, rb-1, i*0.5)
-    xx = floor(w/16);
-    yy = floor((bb)/16);
+        update_aabb();
+        var w = lerp(lb+1, rb-1, i*0.5);
+        xx = floor(w/16);
+        yy = floor((bb)/16);
 
     
-    //if(global.grid[# xx, yy]=tm_solid and final_vsp >= 0)
+        if(floor((y+1)/16)>yprevious_tile)
+        {
+            solid_stair=(get_cell(w,bb,1,0)=tm_solid and get_cell(w,bb,0,0)=tm_stair_end_top and get_cell(w,bb,-1,0)=tm_solid);
+        }                    
+                    
+    show_debug_message("solid_stair="+string(solid_stair)); 
     
-    if(get_cell(w,bb,0,0)=tm_solid and final_vsp >= 0)
+    if((get_cell(w,bb,0,0)=tm_solid or solid_stair) and final_vsp >= 0)
         {
         bb = bb_bottom();
         intrusion = ((bb)-yy*16);
@@ -408,11 +414,3 @@ player_attack();
 if(x<8) then {hsp = 0; x = 8;}
 //RIGHT
 if(x>room_width-8) then {hsp = 0 x = room_width-8};
-
-//show_debug_message("X="+string(x)+" | Y="+string(y))
-//show_debug_message(get_tile_at(x,y))
-
-//TOP
-//if(y<=24) then {vsp = 0; y = 24;}
-//BOTTOM
-//if(y>room_height-8) then {x=xstart; y=ystart}

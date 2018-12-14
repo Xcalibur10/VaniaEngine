@@ -27,8 +27,8 @@
             <kind>1</kind>
             <string>image_speed=0.25;
 vsp=0;
-
 life = 60;
+init_palettes(10)
 </string>
           </argument>
         </arguments>
@@ -83,9 +83,8 @@ y+=vsp;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-if(life mod 2 = 0)
-draw_self();
+            <string>if(life mod 2 = 0)
+draw_self_palette()
 
 </string>
           </argument>

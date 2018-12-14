@@ -25,8 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-max_hp=10;
+            <string>max_hp=10;
 hp=max_hp;
 
 type=0;
